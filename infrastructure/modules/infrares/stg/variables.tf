@@ -14,22 +14,20 @@ variable "location" {
 }
 
 variable "account_tier" {
-  description = "The tier of the storage account (e.g. Standard, Premium)."
   type        = string
-  default     = "Standard"
+  description = "The storage account tier."
   validation {
-    condition     = contains(["Standard", "Premium"], self)
-    error_message = "Account tier must be either Standard or Premium."
+    condition     = contains(["Standard", "Premium"], var.account_tier) # Corrected line
+    error_message = "The account_tier must be either Standard or Premium."
   }
 }
 
 variable "account_replication_type" {
-  description = "The replication type for the storage account (e.g. LRS, GRS, ZRS)."
   type        = string
-  default     = "LRS"
+  description = "The storage account replication type."
   validation {
-    condition     = contains(["LRS", "GRS", "ZRS", "GZRS", "RAGRS", "RAGZRS"], self)
-    error_message = "Valid values for account replication type are LRS, GRS, ZRS, GZRS, RAGRS, and RAGZRS."
+    condition     = contains(["LRS", "GRS", "ZRS", "GZRS", "RAGRS", "RAGZRS"], var.account_replication_type) # Corrected line
+    error_message = "The account_replication_type must be one of: LRS, GRS, ZRS, GZRS, RAGRS, RAGZRS."
   }
 }
 

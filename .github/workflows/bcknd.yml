@@ -1,7 +1,7 @@
-name: Set Up Reliable Terraform State Backend for Infrastructure Management
+name: Set Up Reliable Terraform bcknd Backend for Infrastructure Management
 'on':
   workflow_run:
-    workflows: ["Establish Federated Identity Credentials for Secure Authentication"]
+    workflows: ["Establish Federated Identity Credentials"]
     types:
       - completed
 
@@ -11,14 +11,13 @@ permissions:
 
 jobs:
   Deploy:
-    name: Deploy TF State to backend
+    name: Deploy TF bcknd to backend
     runs-on: ubuntu-latest
     if: github.event.workflow_run.conclusion == 'success'
-    environment: Dev
     defaults:
       run:
         shell: bash
-        working-directory: ./terraform/dev
+        working-directory: ./cloud-resume-challenge-serverless/infrastructure/environments/dev
 
     steps:
       - name: Checkout
@@ -34,18 +33,18 @@ jobs:
       - name: Create Resource Group
         run: |
           set -a
-          source .env.backend
+          source terraform-dev.tfvars
           az group create \
-            -l $TF_VAR_location \
-            -n $TF_VAR_state_resource_group_name
+            -l $bcknd_location \
+            -n $bcknd_resource_group_name
 
       - name: Create Storage Account
         run: |
           set -a
-          source .env.backend
+          source terraform-dev.tfvars
           az storage account create \
-            -n $TF_VAR_state_storage_account_name \
-            -g $TF_VAR_state_resource_group_name \
+            -n $bcknd_storage_account_name \
+            -g $bcknd_resource_group_name \
             -l $TF_VAR_location \
             --sku Standard_LRS \
             --allow-blob-public-access false
@@ -53,7 +52,7 @@ jobs:
       - name: Create STG Container
         run: |
           set -a
-          source .env.backend
+          source terraform-dev.tfvars
           az storage container create \
-            --name $TF_VAR_state_storage_account_container_name \
-            --account-name $TF_VAR_state_storage_account_name
+            --name $bcknd_container_name \
+            --account-name $bcknd_storage_account_name

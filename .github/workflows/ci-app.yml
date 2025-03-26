@@ -1,0 +1,59 @@
+name: PR Validation & Deploy Resume
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: HTML Validation
+        run: |
+          sudo apt install tidy -y
+          tidy -errors -q index.html
+
+      - name: Accessibility Check
+        run: npx pa11y-ci
+
+      - name: Link Check
+        run: npx broken-link-checker http://localhost:8080 -r
+
+  deploy:
+    needs: build_and_deploy_job
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          app_location: "/"
+          api_location: ""
+          output_location: ""
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+
+  close_pull_request_job:
+    if: github.event_name == 'pull_request_target' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    name: Close Pull Request Job
+    steps:
+      - name: Close Pull Request
+        id: closepullrequest
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: "close"

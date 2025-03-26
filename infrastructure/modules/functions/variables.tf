@@ -12,7 +12,7 @@ variable "location" {
       "westeurope",
       "northeurope",
       "norwayeast"
-    ], lower(self))
+    ], lower(var.location))
     error_message = "Invalid Azure Region. Please choose from westeurope, northeurope, or norwayeast."
   }
 }

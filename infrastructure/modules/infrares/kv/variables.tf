@@ -1,5 +1,11 @@
+#
 variable "name" {
   description = "The name of the Key Vault."
+  type        = string
+}
+
+variable "tenant_id" {
+  description = "Tenant ID to be used"
   type        = string
 }
 
