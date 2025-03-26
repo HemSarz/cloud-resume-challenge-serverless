@@ -1,5 +1,6 @@
-# modules/linux_function_app/main.tf
-
+## ---------------------------------------------------
+# Azure Functions
+## ---------------------------------------------------
 resource "azurerm_storage_account" "storage" {
   name                     = var.storage_account_name
   resource_group_name      = var.resource_group_name
@@ -35,7 +36,6 @@ resource "azurerm_linux_function_app" "function_app" {
     "COSMOS_KEY"            = var.cosmos_key
     "COSMOS_DATABASE_NAME"  = var.cosmos_database_name
     "COSMOS_CONTAINER_NAME" = var.cosmos_container_name
-    "FUNCTION_API_URL"      = "https://${azurerm_linux_function_app.function_app.default_hostname}"
   }
   tags = var.tags
 

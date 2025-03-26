@@ -1,7 +1,6 @@
 variable "name" {
   description = "The name of the resource group"
   type        = string
-  default     = {}
 }
 
 variable "location" {
@@ -13,7 +12,7 @@ variable "location" {
       "westeurope",
       "northeurope",
       "norwayeast"
-    ], lower(self))
+    ], lower(var.location))
     error_message = "Invalid region selected. Choose from westeurope, northeurope, or norwayeast."
   }
 }

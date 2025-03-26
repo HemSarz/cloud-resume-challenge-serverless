@@ -3,6 +3,11 @@ output "storage_account_id" {
   value       = azurerm_storage_account.stg.id
 }
 
+output "storage_account_name" {
+  description = "The name of the storage account"
+  value       = azurerm_storage_account.stg.name
+}
+
 output "storage_account_primary_blob_endpoint" {
   description = "The primary blob endpoint of the storage account."
   value       = azurerm_storage_account.stg.primary_blob_endpoint
