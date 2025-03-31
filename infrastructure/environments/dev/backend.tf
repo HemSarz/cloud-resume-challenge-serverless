@@ -11,6 +11,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 4.23.0"
     }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "3.2.0"
+    }
   }
 }
 
@@ -22,8 +26,6 @@ provider "azurerm" {
     }
   }
 }
-
-provider "azuread" {}
 
 /*
 ### Non backend provider block to validate .tf files locally
