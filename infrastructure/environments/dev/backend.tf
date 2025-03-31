@@ -23,6 +23,8 @@ provider "azurerm" {
   }
 }
 
+provider "azuread" {}
+
 /*
 ### Non backend provider block to validate .tf files locally
 
