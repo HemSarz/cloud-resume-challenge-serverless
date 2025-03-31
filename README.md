@@ -35,6 +35,7 @@ cloud-resume-challenge-serverless/
 ┃   ┣ infra-cd.yml
 ┃   ┣ infra-ci.yml
 ┃   ┗ OIDC.yml
+
 ┣ docs/
 ┃ ┣ architecture.md
 ┃ ┗ deployment.md
@@ -51,6 +52,7 @@ cloud-resume-challenge-serverless/
 ┃ ┃   ┣ backend.tf
 ┃ ┃   ┣ main.tf
 ┃ ┃   ┗ variables.tf
+
 ┃ ┗ modules/
 ┃   ┣ cosmosdb/
 ┃ ┃ ┃ ┣ main.tf
@@ -83,6 +85,7 @@ cloud-resume-challenge-serverless/
 ┃ ┃ ┃   ┣ main.tf
 ┃ ┃ ┃   ┣ output.tf
 ┃ ┃ ┃   ┗ variables.tf
+
 ┃   ┣ networking/
 ┃ ┃ ┃ ┣ nsg/
 ┃ ┃ ┃ ┃ ┣ main.tf
@@ -108,6 +111,7 @@ cloud-resume-challenge-serverless/
 ┃ ┃ ┃   ┣ main.tf
 ┃ ┃ ┃   ┣ outputs.tf
 ┃ ┃ ┃   ┗ variables.tf
+
 ┃   ┣ OIDC/
 ┃ ┃ ┃ ┣ data.tf
 ┃ ┃ ┃ ┣ main.tf
@@ -117,10 +121,12 @@ cloud-resume-challenge-serverless/
 ┃ ┃   ┣ main.tf
 ┃ ┃   ┣ output.tf
 ┃ ┃   ┗ variables.tf
+
 ┣ scripts/
 ┃ ┣ cleanup.sh
 ┃ ┣ move.ps1
 ┃ ┗ setup.ps1
+
 ┣ src/
 ┃ ┣ backend/
 ┃ ┃ ┣ .funcignore
