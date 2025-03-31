@@ -35,17 +35,17 @@ jobs:
           set -a
           source .env.backend
           az group create \
-            -l $TF_VAR_location \
-            -n $TF_VAR_state_resource_group_name
+            -l $bcknd_location \
+            -n $bcknd_state_resource_group_name
 
       - name: Create Storage Account
         run: |
           set -a
           source .env.backend
           az storage account create \
-            -n $TF_VAR_state_storage_account_name \
-            -g $TF_VAR_state_resource_group_name \
-            -l $TF_VAR_location \
+            -n $bcknd_state_storage_account_name \
+            -g $bcknd_state_resource_group_name \
+            -l $bcknd_location \
             --sku Standard_LRS \
             --allow-blob-public-access false
 
@@ -54,5 +54,5 @@ jobs:
           set -a
           source .env.backend
           az storage container create \
-            --name $TF_VAR_state_storage_account_container_name \
-            --account-name $TF_VAR_state_storage_account_name
+            --name $bcknd_state_storage_account_container_name \
+            --account-name $bcknd_state_storage_account_name
