@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./infrastructure/environments/dev/oidc
+        working-directory: ./infrastructure/environments/dev
 
     steps:
       - name: Checkout Repository
@@ -42,7 +42,7 @@ jobs:
       - name: Run Checkov Security Scan
         uses: bridgecrewio/checkov-action@v1
         with:
-          directory: ./infrastructure/environments/dev/oidc
+          directory: ./infrastructure/environments/dev
 
       - name: Initialize Terraform
         run: terraform init
