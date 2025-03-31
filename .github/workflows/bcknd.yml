@@ -17,7 +17,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./cloud-resume-challenge-serverless/infrastructure/environments/dev
+        working-directory: ./infrastructure/environments/dev
 
     steps:
       - name: Checkout
