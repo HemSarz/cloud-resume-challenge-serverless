@@ -135,7 +135,6 @@ cloud-resume-challenge-serverless/
 ┃   ┗ index.html
 ┣ .gitignore
 ┗ README.md
-```markdown
 
 ## Prerequisites
 
