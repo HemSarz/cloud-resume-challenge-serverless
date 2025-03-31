@@ -26,108 +26,114 @@ The project utilizes the following Azure services:
 
 ## Repository Structure
 
-📦cloud-resume-challenge-serverless
- ┣ 📂docs
- ┃ ┣ 📜architecture.md
- ┃ ┗ 📜deployment.md
- ┣ 📂infrastructure
- ┃ ┣ 📂environments
- ┃ ┃ ┣ 📂dev
- ┃ ┃ ┃ ┣ 📜backend.tf
- ┃ ┃ ┃ ┣ 📜data.tf
- ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┣ 📜oidc_dev.tf
- ┃ ┃ ┃ ┣ 📜terraform-dev.tfvars
- ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┗ 📂prod
- ┃ ┃ ┃ ┣ 📜backend.tf
- ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┗ 📂modules
- ┃ ┃ ┣ 📂cosmosdb
- ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┣ 📂functions
- ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┣ 📂infrares
- ┃ ┃ ┃ ┣ 📂kv
- ┃ ┃ ┃ ┃ ┣ 📂secrets
- ┃ ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┣ 📂rg
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┗ 📂stg
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┣ 📂monitoring
- ┃ ┃ ┃ ┣ 📂azGrafana
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┗ 📂azPrometheus
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┣ 📂networking
- ┃ ┃ ┃ ┣ 📂nsg
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┣ 📂nsg_association
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┣ 📂privatedns
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┣ 📂privateendpoint
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┣ 📂subnet
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┃ ┗ 📂vnet
- ┃ ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┃ ┣ 📜outputs.tf
- ┃ ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┣ 📂OIDC
- ┃ ┃ ┃ ┣ 📜data.tf
- ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┗ 📜variables.tf
- ┃ ┃ ┗ 📂staticwebapp
- ┃ ┃ ┃ ┣ 📜main.tf
- ┃ ┃ ┃ ┣ 📜output.tf
- ┃ ┃ ┃ ┗ 📜variables.tf
- ┣ 📂scripts
- ┃ ┣ 📜cleanup.sh
- ┃ ┣ 📜move.ps1
- ┃ ┗ 📜setup.ps1
- ┣ 📂src
- ┃ ┣ 📂backend
- ┃ ┃ ┣ 📜.funcignore
- ┃ ┃ ┣ 📜.gitignore
- ┃ ┃ ┣ 📜.pre-commit-config.yaml
- ┃ ┃ ┣ 📜function_app.py
- ┃ ┃ ┣ 📜host.json
- ┃ ┃ ┣ 📜README.md
- ┃ ┃ ┗ 📜requirements.txt
- ┃ ┗ 📂frontend
- ┃ ┃ ┗ 📜index.html
- ┗ 📜.gitignore
+cloud-resume-challenge-serverless/
+┣ .github/
+┃ ┗ workflows/
+┃   ┣ bcknd.yml
+┃   ┣ ci-app.yml
+┃   ┣ ci.yml
+┃   ┣ infra-cd.yml
+┃   ┣ infra-ci.yml
+┃   ┗ OIDC.yml
+┣ docs/
+┃ ┣ architecture.md
+┃ ┗ deployment.md
+┣ infrastructure/
+┃ ┣ environments/
+┃ ┃ ┣ dev/
+┃ ┃ ┃ ┣ backend.tf
+┃ ┃ ┃ ┣ data.tf
+┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┣ oidc_dev.tf
+┃ ┃ ┃ ┣ terraform-dev.tfvars
+┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┗ prod/
+┃ ┃   ┣ backend.tf
+┃ ┃   ┣ main.tf
+┃ ┃   ┗ variables.tf
+┃ ┗ modules/
+┃   ┣ cosmosdb/
+┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┣ output.tf
+┃ ┃ ┃ ┗ variables.tf
+┃   ┣ functions/
+┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┣ output.tf
+┃ ┃ ┃ ┗ variables.tf
+┃   ┣ infrares/
+┃ ┃ ┃ ┣ kv/
+┃ ┃ ┃ ┃ ┣ secrets/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ outputs.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┣ rg/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ output.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┗ stg/
+┃ ┃ ┃   ┣ main.tf
+┃ ┃ ┃   ┣ outputs.tf
+┃ ┃ ┃   ┗ variables.tf
+┃   ┣ monitoring/
+┃ ┃ ┃ ┣ azGrafana/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ output.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┗ azPrometheus/
+┃ ┃ ┃   ┣ main.tf
+┃ ┃ ┃   ┣ output.tf
+┃ ┃ ┃   ┗ variables.tf
+┃   ┣ networking/
+┃ ┃ ┃ ┣ nsg/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ outputs.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┣ nsg_association/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ outputs.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┣ privatedns/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ outputs.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┣ privateendpoint/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ outputs.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┣ subnet/
+┃ ┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┃ ┣ outputs.tf
+┃ ┃ ┃ ┃ ┗ variables.tf
+┃ ┃ ┃ ┗ vnet/
+┃ ┃ ┃   ┣ main.tf
+┃ ┃ ┃   ┣ outputs.tf
+┃ ┃ ┃   ┗ variables.tf
+┃   ┣ OIDC/
+┃ ┃ ┃ ┣ data.tf
+┃ ┃ ┃ ┣ main.tf
+┃ ┃ ┃ ┣ output.tf
+┃ ┃ ┃ ┗ variables.tf
+┃   ┗ staticwebapp/
+┃ ┃   ┣ main.tf
+┃ ┃   ┣ output.tf
+┃ ┃   ┗ variables.tf
+┣ scripts/
+┃ ┣ cleanup.sh
+┃ ┣ move.ps1
+┃ ┗ setup.ps1
+┣ src/
+┃ ┣ backend/
+┃ ┃ ┣ .funcignore
+┃ ┃ ┣ .gitignore
+┃ ┃ ┣ .pre-commit-config.yaml
+┃ ┃ ┣ function_app.py
+┃ ┃ ┣ host.json
+┃ ┃ ┣ README.md
+┃ ┃ ┗ requirements.txt
+┃ ┗ frontend/
+┃   ┗ index.html
+┣ .gitignore
+┗ README.md
 
 ## Prerequisites
 
