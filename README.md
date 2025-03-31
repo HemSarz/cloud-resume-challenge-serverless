@@ -135,7 +135,7 @@ cloud-resume-challenge-serverless/
 ┃   ┗ index.html
 ┣ .gitignore
 ┗ README.md
-
+```
 ## Prerequisites
 
 * Azure subscription
