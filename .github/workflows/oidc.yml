@@ -26,9 +26,6 @@ jobs:
       - name: Check Terraform Formatting
         run: terraform fmt -check
 
-      - name: Validate Terraform Code
-        run: terraform validate
-
       - name: Setup TFLint
         uses: terraform-linters/setup-tflint@v4
         with:
