@@ -2,6 +2,8 @@
 
 # OIDC
 
+# modules/azuread_github_federated_identity/variables.tf
+
 variable "prefix" {
   type        = string
   default     = "tfaz-dev"
