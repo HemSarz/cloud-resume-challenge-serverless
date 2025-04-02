@@ -38,19 +38,11 @@ variable "gh_repo_name" {
   description = "GitHub repository name."
   default     = "cloud-resume-challenge-serverless"
 }
-
 variable "gh_branches" {
+  description = "List of GitHub branches allowed for OIDC authentication"
   type        = list(string)
-  default     = ["main"]
-  description = "List of GitHub branches to create federated identity credentials for."
-  validation {
-    condition = contains([
-      "main"
-    ], lower(var.gh_branches))
-    error_message = "Choose correct branch"
-  }
+  default     = ["main", "feature-branch"]
 }
-
 variable "gh_env" {
   type        = list(string)
   default     = ["dev", "prod", "qa"]
