@@ -1,6 +1,69 @@
+variable "resource_group_name" {
+  description = "Name of the resource group."
+  type        = string
+  default     = "test"
+}
+
+variable "location" {
+  description = "Azure region."
+  type        = string
+  default     = "norwayeast"
+}
+
+variable "storage_account_name" {
+  description = "Name of the storage account."
+  type        = string
+  default     = "tfazstg"
+}
+
+variable "keyvault_name" {
+  description = "Name of the key vault."
+  type        = string
+  default     = "kv01"
+}
+
+variable "cosmosdb_account_name" {
+  description = "Name of the Cosmos DB account."
+  type        = string
+  default     = "tfazdbacc"
+}
+
+variable "cosmosdb_database_name" {
+  description = "Name of the Cosmos DB database."
+  type        = string
+  default     = "dbtfaz"
+}
+
+variable "cosmosdb_container_name" {
+  description = "Name of the Cosmos DB container."
+  type        = string
+  default     = "tfazdbcont"
+}
+
+variable "function_app_name" {
+  description = "Name of the Azure Function App."
+  type        = string
+  default     = "dev-func"
+}
+
+variable "vnet_name" {
+  description = "Name of the Virtual Network."
+  type        = string
+  default     = "vnet-dev"
+}
+
+variable "vnet_address_space" {
+  description = "Address space for the Virtual Network."
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
+
+
 ##########################
 
 # OIDC
+
+# modules/azuread_github_federated_identity/variables.tf
 
 variable "prefix" {
   type        = string
