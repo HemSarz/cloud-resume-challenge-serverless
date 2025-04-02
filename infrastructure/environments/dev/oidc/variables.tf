@@ -42,7 +42,7 @@ variable "gh_repo_name" {
 variable "gh_branches" {
   description = "List of GitHub branches allowed for OIDC authentication"
   type        = list(string)
-  default     = ["main", "develop", "feature-branch"]
+  default     = ["main", "dev", "feature-branch"]
 }
 
 
