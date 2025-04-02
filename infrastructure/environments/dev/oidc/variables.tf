@@ -41,8 +41,16 @@ variable "gh_repo_name" {
 variable "gh_branches" {
   description = "List of GitHub branches allowed for OIDC authentication"
   type        = list(string)
-  default     = ["main", "feature-branch"]
+  default     = ["main"]
+  description = "List of GitHub branches to create federated identity credentials for."
+  validation {
+    condition = contains([
+      "main"
+    ], lower(var.gh_branches))
+    error_message = "Choose correct branch"
+  }
 }
+
 variable "gh_env" {
   type        = list(string)
   default     = ["dev", "prod", "qa"]
