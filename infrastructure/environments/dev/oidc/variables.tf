@@ -9,11 +9,11 @@ variable "prefix" {
   default     = "tfaz-dev"
   description = "Prefix for the display names."
 }
-
-variable "application_display_name" {
+variable "application_id" {
   type        = string
-  description = "Display name of the Azure AD application."
+  description = "The id of the SPN"
 }
+
 
 variable "fic_display_name_env" {
   type        = string
