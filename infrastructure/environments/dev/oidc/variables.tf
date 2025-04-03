@@ -50,14 +50,14 @@ variable "gh_env" {
   description = "List of GitHub environments to create federated identity credentials for."
 }
 
-variable "audiences" {
-  type = string
-}
+# variable "audiences" {
+#   type = string
+# }
 
-variable "issuer" {
-  type = string
-}
+# variable "issuer" {
+#   type = string
+# }
 
-variable "subject" {
-  type = string
-}
+# variable "subject" {
+#   type = string
+# }
