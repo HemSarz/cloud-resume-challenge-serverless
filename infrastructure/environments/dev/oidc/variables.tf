@@ -9,10 +9,10 @@ variable "prefix" {
   default     = "tfaz-dev"
   description = "Prefix for the display names."
 }
-variable "application_id" {
-  type        = string
-  description = "The id of the SPN"
-}
+# variable "application_id" {
+#   type        = string
+#   description = "The id of the SPN"
+# }
 
 
 variable "fic_display_name_env" {
