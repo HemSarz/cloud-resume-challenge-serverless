@@ -6,7 +6,7 @@
 
 variable "prefix" {
   type        = string
-  default     = "tfaz-dev"
+  default     = "dev-tfaz"
   description = "Prefix for the display names."
 }
 # variable "application_id" {
