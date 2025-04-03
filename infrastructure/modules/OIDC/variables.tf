@@ -41,7 +41,7 @@ variable "gh_env" {
 
 
 variable "audiences" {
-  type = string
+  type = list(string)
 }
 
 variable "issuer" {
