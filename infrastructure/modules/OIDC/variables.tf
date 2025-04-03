@@ -3,13 +3,6 @@ variable "prefix" {
   default     = "tfaz-dev"
   description = "Prefix for the display names."
 }
-
-variable "application_display_name" {
-  type        = string
-  description = "Display name of the Azure AD application."
-  default     = "value"
-}
-
 variable "fic_display_name_env" {
   type        = string
   default     = "github-actions-fic-env"
@@ -57,4 +50,9 @@ variable "issuer" {
 
 variable "subject" {
   type = string
+}
+
+variable "application_id" {
+  type        = string
+  description = "The id of the SPN"
 }
