@@ -17,14 +17,20 @@ variable "prefix" {
 
 # variable "fic_display_name_env" {
 #   type        = string
-#   default     = "gha-ic-env"
+#   default     = "gha-fic-env"
 #   description = "Display name prefix for environment federated identity credentials."
 # }
 
-variable "fic_display_name_branch" {
+# variable "fic_display_name_branch" {
+#   type        = string
+#   default     = "gha-fic-branch"
+#   description = "Display name prefix for branch federated identity credentials."
+# }
+
+variable "display_name" {
+  description = "display name for the federated identity credential"
   type        = string
-  default     = "gha-fic-branch"
-  description = "Display name prefix for branch federated identity credentials."
+  default     = "gha-fic-tfaz-dev"
 }
 
 variable "gh_org_name" {
