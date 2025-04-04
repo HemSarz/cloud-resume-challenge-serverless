@@ -15,11 +15,11 @@ variable "prefix" {
 # }
 
 
-variable "fic_display_name_env" {
-  type        = string
-  default     = "gha-ic-env"
-  description = "Display name prefix for environment federated identity credentials."
-}
+# variable "fic_display_name_env" {
+#   type        = string
+#   default     = "gha-ic-env"
+#   description = "Display name prefix for environment federated identity credentials."
+# }
 
 variable "fic_display_name_branch" {
   type        = string
