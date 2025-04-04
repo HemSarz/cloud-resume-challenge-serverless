@@ -3,16 +3,11 @@ variable "prefix" {
   default     = "tfaz-dev"
   description = "Prefix for the display names."
 }
-# variable "fic_display_name_env" {
-#   type        = string
-#   description = "Display name prefix for environment federated identity credentials."
-# }
 
-variable "fic_display_name_branch" {
+variable "display_name" {
+  description = "display name for the federated identity credential"
   type        = string
-  description = "Display name prefix for branch federated identity credentials."
 }
-
 variable "gh_org_name" {
   type        = string
   description = "GitHub organization name."
