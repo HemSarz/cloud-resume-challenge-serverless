@@ -17,13 +17,13 @@ variable "prefix" {
 
 variable "fic_display_name_env" {
   type        = string
-  default     = "github-actions-fic-env"
+  default     = "gha-ic-env"
   description = "Display name prefix for environment federated identity credentials."
 }
 
 variable "fic_display_name_branch" {
   type        = string
-  default     = "github-actions-fic-branch"
+  default     = "gha-fic-branch"
   description = "Display name prefix for branch federated identity credentials."
 }
 
