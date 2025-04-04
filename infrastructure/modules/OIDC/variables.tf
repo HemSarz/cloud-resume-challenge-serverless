@@ -5,13 +5,11 @@ variable "prefix" {
 }
 variable "fic_display_name_env" {
   type        = string
-  default     = "github-actions-fic-env"
   description = "Display name prefix for environment federated identity credentials."
 }
 
 variable "fic_display_name_branch" {
   type        = string
-  default     = "github-actions-fic-branch"
   description = "Display name prefix for branch federated identity credentials."
 }
 
