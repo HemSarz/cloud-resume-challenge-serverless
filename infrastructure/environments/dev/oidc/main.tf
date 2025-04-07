@@ -11,5 +11,5 @@ module "tfaz_oidc_dev" {
 }
 
 locals {
-  display_names = { for b in var.gh_var.gh_branches : b => "${var.var.display_name}-${b}" }
+  display_names = { for b in var.gh_branches : b => "${var.var.display_name}-${b}" }
 }
