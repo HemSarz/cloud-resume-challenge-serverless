@@ -30,7 +30,7 @@ variable "prefix" {
 variable "display_name" {
   description = "display name for the federated identity credential"
   type        = string
-  default     = "gha-fic-tfaz-dev"
+  default     = "gha-fic-dev-tfaz"
 }
 
 variable "gh_org_name" {
