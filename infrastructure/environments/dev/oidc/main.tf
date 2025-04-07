@@ -7,5 +7,5 @@ module "tfaz_oidc_dev" {
   gh_repo_name   = var.gh_repo_name
   audiences      = ["api://AzureADTokenExchange"]
   issuer         = "https://token.actions.githubusercontent.com"
-  subject        = "repo:${var.gh_org_name}/${var.gh_repo_name}:ref:refs/heads/${each.value}"
+  subject        = "repo:${var.gh_org_name}/${var.gh_repo_name}:ref:refs/heads/${each.key}"
 }
