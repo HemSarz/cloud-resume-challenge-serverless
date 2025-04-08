@@ -36,7 +36,7 @@ variable "display_name" {
 variable "gh_org_name" {
   type        = string
   description = "GitHub organization name."
-  default     = "hemsarz"
+  default     = "HemSarz"
 }
 
 variable "gh_repo_name" {
