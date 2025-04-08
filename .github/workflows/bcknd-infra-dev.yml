@@ -4,6 +4,7 @@ name: Set Up Reliable Terraform State Backend for Infrastructure Management
     workflows: ["Establish Federated Identity Credentials for Secure Authentication"]
     types:
       - completed
+  workflow_dispatch: # TEST
 
 permissions:
   id-token: write
@@ -35,7 +36,7 @@ jobs:
           set -a
           source .env.backend
           az group create \
-            -l $bcknd_location \
+            -l $bcknd_state_location \
             -n $bcknd_state_resource_group_name
 
       - name: Create Storage Account
@@ -45,7 +46,7 @@ jobs:
           az storage account create \
             -n $bcknd_state_storage_account_name \
             -g $bcknd_state_resource_group_name \
-            -l $bcknd_location \
+            -l $bcknd_state_location \
             --sku Standard_LRS \
             --allow-blob-public-access false
 
