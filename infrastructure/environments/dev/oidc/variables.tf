@@ -4,11 +4,6 @@
 
 # modules/azuread_github_federated_identity/variables.tf
 
-variable "prefix" {
-  type        = string
-  default     = "dev-tfaz"
-  description = "Prefix for the display names."
-}
 # variable "application_id" {
 #   type        = string
 #   description = "The id of the SPN"
@@ -27,10 +22,15 @@ variable "prefix" {
 #   description = "Display name prefix for branch federated identity credentials."
 # }
 
+variable "prefix" {
+  type        = string
+  default     = "dev-tfaz"
+  description = "Prefix for the display names."
+}
 variable "display_name" {
   description = "display name for the federated identity credential"
   type        = string
-  default     = "gha-fic-dev-tfaz"
+  default     = "gha-fic-tfaz"
 }
 
 variable "gh_org_name" {
@@ -47,7 +47,7 @@ variable "gh_repo_name" {
 variable "gh_branches" {
   description = "List of GitHub branches allowed for OIDC authentication"
   type        = list(string)
-  default     = ["main", "dev", "feature-branch"]
+  default     = ["main", "dev", "feat"]
 }
 
 variable "gh_env" {
