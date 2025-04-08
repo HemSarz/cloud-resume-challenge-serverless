@@ -1,5 +1,0 @@
-bcknd_state_resource_group_name  = "bckndrg"
-bcknd_state_storage_account_name = "stgbcknd"
-bcknd_state_container_name       = "bckndstatecont"
-bcknd_state_key_name             = "tfstatebcknd"
-bcknd_state_location             = "norwayeast"
