@@ -25,6 +25,7 @@ provider "azurerm" {
       recover_soft_deleted_certificates = false
     }
   }
+  use_oidc = true
 }
 
 /*
