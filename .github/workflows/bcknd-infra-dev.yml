@@ -33,7 +33,7 @@ jobs:
       - name: Create Resource Group
         run: |
           set -a
-          source .env.backend
+          source terraform-dev.tfvars
           az group create \
             -l $bcknd_location \
             -n $bcknd_state_resource_group_name
@@ -41,7 +41,7 @@ jobs:
       - name: Create Storage Account
         run: |
           set -a
-          source .env.backend
+          source terraform-dev.tfvars
           az storage account create \
             -n $bcknd_state_storage_account_name \
             -g $bcknd_state_resource_group_name \
@@ -52,7 +52,7 @@ jobs:
       - name: Create STG Container
         run: |
           set -a
-          source .env.backend
+          source terraform-dev.tfvars
           az storage container create \
-            --name $bcknd_state_storage_account_container_name \
+            --name $bcknd_state_container_name \
             --account-name $bcknd_state_storage_account_name
