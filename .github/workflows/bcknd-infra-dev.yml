@@ -4,8 +4,7 @@ name: Set Up Reliable Terraform State Backend for Infrastructure Management
     workflows: ["Establish Federated Identity Credentials for Secure Authentication"]
     types:
       - completed
-  workflow_dispatch: # TEST
-
+      
 permissions:
   id-token: write
   contents: read
