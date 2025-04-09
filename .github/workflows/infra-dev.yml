@@ -1,7 +1,7 @@
 name: Deploy Azure Infrastructure On Dev
 'on':
   workflow_run:
-    workflows: ["Establish Federated Identity Credentials for Secure Authentication"]
+    workflows: ["Set Up Reliable Terraform State Backend for Infrastructure Management"]
     types:
       - completed
 
