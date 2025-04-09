@@ -71,10 +71,10 @@ variable "prefix" {
   description = "Prefix for the display names."
 }
 
-variable "application_display_name" {
-  type        = string
-  description = "Display name of the Azure AD application."
-}
+# variable "application_display_name" {
+#   type        = string
+#   description = "Display name of the Azure AD application."
+# }
 
 variable "fic_display_name_env" {
   type        = string
@@ -105,9 +105,11 @@ variable "gh_branches" {
   default     = ["main"]
   description = "List of GitHub branches to create federated identity credentials for."
   validation {
-    condition = contains([
-      "main"
-    ], lower(var.gh_branches))
+    condition = alltrue([
+      for branch in var.gh_branches : contains([
+        "main"
+      ], lower(branch))
+    ])
     error_message = "Choose correct branch"
   }
 }
@@ -118,14 +120,21 @@ variable "gh_env" {
   description = "List of GitHub environments to create federated identity credentials for."
 }
 
-variable "audiences" {
-  type = string
-}
+# variable "audiences" {
+#   type = string
+# }
 
-variable "issuer" {
-  type = string
-}
+# variable "issuer" {
+#   type = string
+# }
 
-variable "subject" {
-  type = string
-}
+# variable "subject" {
+#   type = string
+# }
+# 
+
+# variable "identity_type" {
+#   type        = string
+#   description = "The type of identity to assign to the Static Web App. Possible values are 'SystemAssigned' (default) or 'UserAssigned'."
+#   default     = "SystemAssigned"
+# }

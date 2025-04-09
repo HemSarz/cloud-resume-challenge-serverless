@@ -146,9 +146,6 @@ module "azstaticwebapp" {
   name                = "res-static-app"
   location            = module.rg.location
   resource_group_name = module.rg.resource_group_name
-  sku_name            = "Free"
-
-  identity_type = {
-    type = "SystemAssigned"
-  }
+  sku_size            = "Free"
+  sku_tier            = "Free"
 }
