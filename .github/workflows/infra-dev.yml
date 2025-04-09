@@ -1,4 +1,4 @@
-name: Set Up Reliable Terraform State Backend for Infrastructure Management
+name: Deploy Azure Infrastructure On Dev
 'on':
   workflow_run:
     workflows: ["Establish Federated Identity Credentials for Secure Authentication"]
@@ -30,29 +30,14 @@ jobs:
             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Create Resource Group
-        run: |
-          set -a
-          source .env.backend
-          az group create \
-            -l $bcknd_location \
-            -n $bcknd_state_resource_group_name
+      - name: Terraform validate
+        id: validate
+        run: terraform validate -no-color
 
-      - name: Create Storage Account
-        run: |
-          set -a
-          source .env.backend
-          az storage account create \
-            -n $bcknd_state_storage_account_name \
-            -g $bcknd_state_resource_group_name \
-            -l $bcknd_location \
-            --sku Standard_LRS \
-            --allow-blob-public-access false
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -no-color
 
-      - name: Create STG Container
-        run: |
-          set -a
-          source .env.backend
-          az storage container create \
-            --name $bcknd_state_storage_account_container_name \
-            --account-name $bcknd_state_storage_account_name
+      - name: Terraform apply
+        id: apply
+        run: terraform apply -auto-approve
