@@ -7,19 +7,19 @@ variable "resource_group_name" {
 variable "location" {
   description = "Azure region."
   type        = string
-  default     = "norwayeast"
+  default     = "westeurope"
 }
 
 variable "storage_account_name" {
   description = "Name of the storage account."
   type        = string
-  default     = "tfazstg"
+  default     = "tfazstg001dev"
 }
 
 variable "keyvault_name" {
   description = "Name of the key vault."
   type        = string
-  default     = "kv01"
+  default     = "kv01tfazdev"
 }
 
 variable "cosmosdb_account_name" {
