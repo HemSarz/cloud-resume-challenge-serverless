@@ -25,5 +25,6 @@ provider "azurerm" {
       recover_soft_deleted_certificates = false
     }
   }
-  use_oidc = true
+  use_oidc        = true
+  subscription_id = "64208b73-267b-43b1-9bb1-649f128147e6"
 }
