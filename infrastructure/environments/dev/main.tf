@@ -47,7 +47,7 @@ module "subnet" {
 module "stg" {
   source                   = "../../modules/infrares/stg"
   name                     = var.storage_account_name
-  location                 = var.location
+  location                 = module.rg.location
   resource_group_name      = module.rg.resource_group_name
   account_tier             = "Standard"
   account_replication_type = "LRS"
