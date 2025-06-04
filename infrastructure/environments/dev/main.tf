@@ -8,6 +8,40 @@ module "rg" {
   location = var.location
 }
 
+
+## ---------------------------------------------------
+# Storage Account Dev
+## ---------------------------------------------------
+
+resource "random_string" "stg_suffix" {
+  length  = 4
+  special = false
+  upper   = false
+
+}
+module "stg" {
+  source                   = "../../modules/infrares/stg"
+  name                     = "$(var.storage_account_name)${random_string.stg_suffix.result}"
+  location                 = module.rg.location
+  resource_group_name      = module.rg.resource_group_name
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+## ---------------------------------------------------
+# Key Vault Dev
+## ---------------------------------------------------
+
+module "kv" {
+  source                      = "../../modules/infrares/kv"
+  name                        = var.keyvault_name
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  resource_group_name         = module.rg.resource_group_name
+  location                    = var.location
+  enabled_for_disk_encryption = false
+  purge_protection_enabled    = false
+}
+
 ## ---------------------------------------------------
 # Virtual Network
 ## ---------------------------------------------------
@@ -38,33 +72,6 @@ module "subnet" {
       address_prefix = "10.0.2.0/24"
     }
   }
-}
-
-## ---------------------------------------------------
-# Storage Account Dev
-## ---------------------------------------------------
-
-module "stg" {
-  source                   = "../../modules/infrares/stg"
-  name                     = var.storage_account_name
-  location                 = module.rg.location
-  resource_group_name      = module.rg.resource_group_name
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-## ---------------------------------------------------
-# Key Vault Dev
-## ---------------------------------------------------
-
-module "kv" {
-  source                      = "../../modules/infrares/kv"
-  name                        = var.keyvault_name
-  tenant_id                   = data.azurerm_client_config.current.tenant_id
-  resource_group_name         = module.rg.resource_group_name
-  location                    = var.location
-  enabled_for_disk_encryption = false
-  purge_protection_enabled    = false
 }
 
 ## ---------------------------------------------------
