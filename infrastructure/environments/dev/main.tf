@@ -136,7 +136,7 @@ module "functions" {
   source                = "../../modules/functions"
   resource_group_name   = module.rg.resource_group_name
   location              = var.location
-  storage_account_name  = module.stg.storage_account_name
+  storage_account_name  = var.functions_stgName
   function_app_name     = var.function_app_name
   cosmos_container_name = module.cosmosdb.cosmosdb_container_name
   cosmos_database_name  = module.cosmosdb.cosmosdb_database_name

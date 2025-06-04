@@ -16,6 +16,13 @@ variable "storage_account_name" {
   default     = "tfaz"
 }
 
+variable "functions_stgName" {
+  description = "Name of the storage account for Azure Functions."
+  type        = string
+  default     = "tfazfuncstg001"
+
+}
+
 variable "keyvault_name" {
   description = "Name of the key vault."
   type        = string

@@ -17,7 +17,7 @@ else {
     Write-Host "No resource groups found to delete."
 }
 
-# then delete the federated credentials for the service principal
+# Then delete the federated credentials for the service principal
     $fics = az ad app federated-credential list --id $appId --query "[].id" -o tsv
    foreach ($ficId in $fics) {
         Write-Host "Deleting federated credential: $ficId"
