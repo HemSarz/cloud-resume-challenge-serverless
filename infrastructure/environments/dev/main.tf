@@ -21,7 +21,7 @@ resource "random_string" "stg_suffix" {
 }
 module "stg" {
   source                   = "../../modules/infrares/stg"
-  name                     = "$(var.storage_account_name)${random_string.stg_suffix.result}"
+  name                     = "${var.storage_account_name}${random_string.stg_suffix.result}"
   location                 = module.rg.location
   resource_group_name      = module.rg.resource_group_name
   account_tier             = "Standard"
